@@ -26,7 +26,7 @@ public:
 void CLedClock::init()
 {
   refresh = 1; // screen refresh flag - set to 1 initially to setup the clock
-  dotmatrix.setfont(14); // FONT_7x13
+  dotmatrix.setfont(14); // FONT_7x14
 }
 
 //*****************************************************************************************************
@@ -34,10 +34,10 @@ void CLedClock::init()
 //
 void CLedClock::run()
 {
-    //if refresh flag is 1, we need to update the digits
+    // if refresh flag is 1, we need to update the digits
     if (refresh)
     {
-      //update score / time
+      // update time
       byte mins = minute(); 
       byte hours = hour();
         
@@ -64,11 +64,11 @@ void CLedClock::run()
       // reset refresh flag
       refresh = 0;
       
-      //short wait
+      // short wait
       delay(1000);
     }
 
-    //let's make this clock blinking, so much more fun!
+    // let's make this clock blink, so much more fun!
     if (second() % 2)
       color = 2;
     else
@@ -77,11 +77,11 @@ void CLedClock::run()
       dotmatrix.plot(UPPER_DOT_X, UPPER_DOT_Y, color);
       dotmatrix.plot(LOWER_DOT_X, LOWER_DOT_Y, color);
       
-    //if coming up to secs = 59 we need to update our digits.
+    // if coming up to secs = 59 we need to update our digits.
     if (second() == 59)
       refresh = 1;
     
-    //apply changes
+    // apply changes
     dotmatrix.sendframe();
  
     delay(500);
@@ -100,4 +100,3 @@ void loop ()
 {
   ledClock.run();
 }
-
