@@ -76,6 +76,8 @@ void CLedClock::run()
       
       dotmatrix.plot(UPPER_DOT_X, UPPER_DOT_Y, color);
       dotmatrix.plot(LOWER_DOT_X, LOWER_DOT_Y, color);
+      dotmatrix.plot(UPPER_DOT_X+1, UPPER_DOT_Y, color);
+      dotmatrix.plot(LOWER_DOT_X+1, LOWER_DOT_Y, color);
       
     // if coming up to secs = 59 we need to update our digits.
     if (second() == 59)
