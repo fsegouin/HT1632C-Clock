@@ -29,3 +29,5 @@ void CLedClock::init()
   dotmatrix.setfont(14); // FONT_7x13
 }
 ```
+
+Don't forget to set the time once on your DS1307 chip, using the 'setTime.ino' sketch in DS1307RTC\examples\SetTime.
